@@ -1,0 +1,12 @@
+
+D:\Oracle\Middleware\user_projects\epmsystem1\httpConfig\ohs\bin\opmnctl.bat registerinstance -adminHost MRMEPM08.na.rccl.com -adminPort 7001 -adminUsername epm_admin
+
+D:\Oracle\Middleware\user_projects\epmsystem1\httpConfig\ohs\bin\opmnctl.bat registerinstance -adminHost DEVEPM01.na.rccl.com -adminPort 7001 -adminUsername epm_admin
+
+D:\Oracle\Middleware\user_projects\epmsystem1\httpConfig\ohs\bin\opmnctl.bat registerinstance -adminHost MRMEPMFND0.na.rccl.com -adminPort 7001 -adminUsername epm_admin
+
+
+
+
+
+opmnctl unregisterinstance -force true -instanceName instance1 -adminHost myadminserver -adminPort 7001

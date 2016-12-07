@@ -1,0 +1,53 @@
+1. Make sure for Paging File, it is set to C - None, and D - System Managed
+2. Make sure primary DNS is 10.14.104.78 and secondary is 10.18.40.11
+3. Turn Off IE Enhanced Security  [already done by Windows Team]
+4. Make sure Windows Firewall is turned off  [already done by Windows Team]
+5. Set these local policies for the EPMDevUser/EPMProdUser
+   gpedit.msc:
+   Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignment
+   1. Act as part of the OS (add actual user)
+   2. Bypass Traverse Checking (default Administrators group)   [already done by default]
+   3. Log on as a batch job (default Administrators group)   [already done by default]
+   4. Log on as a service (add actual user)
+6. Allow more than 1 concurrent login for users.  Run tsconfig.msc, Locate "Restrict each user to a single session" Right click > Properties.  
+   Remove the tick from "Restrict each user to a single session" > Apply > OK.
+7. Disable UAC
+8. Set the DCOM Default Authentication Level to 'Connect'  [already done by default]
+9. Map EPMDev and EPMProd directories
+10. Create c:\TEMP and D:\TEMP
+11. Install Powershell 4.0 (\\epmdev\Software\utilities\Windows6.1-KB2819745-x64-MultiPkg.msu) -- it must be downloaded locally to install
+12. Copy Desktop shortcuts for 32 and 64 bit ODBC Administrators from EPMDEV directory
+13. Install Notepad++ (\\epmdev\Software\utilities\npp.6.8.Install.exe)
+14. Install Clover  (\\epmdev\Software\utilities\Clover_Setup.exe)
+15. Install 7-Zip  (\\epmdev\Software\utilities\7z1505-x64.exe)
+16. Install 64bit java 1.8 to D:\Java  (\\epmdev\Software\Java\jdk-8u51-windows-x64.exe)
+17. Install 10g 32 bit Oracle Client (Administrator option) to D:\app\10.2.0\client_1  
+    (\\epmdev\Software\Oracle\oracle 10g client\setup.exe)  -- the directory must be downloaded locally to install
+18. Copy tnsnames from (\\epmdev\Software\Oracle\tnsnames.ora)
+19. Make sure sqlnet.ora has both of these lines:
+    SQLNET.AUTHENTICATION_SERVICES = (NTS)
+    NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)
+20. Install iSeries Client to C:
+21. Install Interactive Reporting IR Studio
+22. Add Environment Variables:
+
+    EPM_ORACLE_HOME
+    D:\Oracle\Middleware\EPMSystem11R1
+    
+    ****Note that empsystemx has to be changed to match the instance name on each server
+    EPM_ORACLE_INSTANCE
+    D:\Oracle\Middleware\user_projects\epmsystem1
+    
+    TNS_ADMIN
+	D:\app\10.2.0\client_1\NETWORK\ADMIN
+    
+22. Create ODBCs by importing mrmepmfnd0_odbc.reg from into registry  (\\epmdev\ODBC\mrmepmfnd0_odbc.reg)
+23. Install python 2.7 using d:\temp\python-2.7.11.msi
+24. Run c:\temp\VCForPython27.msi to install additional c++ libraries needed for psutil python package
+25. Add c:\python27;c:\python27\scripts to Path environment variable
+26. Upgrade pip by running this in command prompt:  python -m pip install --upgrade pip
+27. pip install cx_oracle
+29. pip install psutil
+
+
+

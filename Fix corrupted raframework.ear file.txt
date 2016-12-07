@@ -1,0 +1,19 @@
+Stop the "Hyperion Reporting Framework - Web Application" service from services panel.
+
+Log in to the Admin Server Console.
+
+In the Weblogic Admin Server Console click Servers link in the left.
+
+In the right pane delete the "RaFrameworkx" using the Delete button there (after clicking Lock and Edit). Activate changes.
+
+Replace the corrupted raframework.ear file in Oracle\Middleware\EPMSystem11R1\products\biplus\InstallableApps folder using the raframework.ear.bak copy of this file. Typically this file should be 4,584 Kb.
+
+Launch the EPM System Configurator as the same user who initially configured the system.
+
+Select the "Deploy to Application Server" task under "Reporting and Analysis" in the Configurator.
+
+Proceed with the deployment and complete the task in the Configurator.
+
+Restart the "Hyperion Reporting Framework - Web application" service.
+
+Check the Admin Server Console and make sure that RaFrameworkx is up and running.

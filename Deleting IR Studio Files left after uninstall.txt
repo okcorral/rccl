@@ -1,0 +1,48 @@
+ Hi Tom, 
+
+ My name is David and I am assisting Krishna on this issue. 
+ For the directory that can't be deleted, can you please try the following: 
+
+ If the directory "<Oracle>\Middleware\EPMSystem11R1\common\JRE\Sun\1.6.0\lib\fonts" is still present after the uninstall and can't be deleted, do the following. 
+ 1. As an Admin, open the Windows Control Panel. 
+ 2. Open Fonts 
+ 3. Delete the shortcuts for the fonts that start with "Albany". There should be five of them. 
+ 4. Move to the font "Lucida Bright", and double click on it. 
+ 5. Delete the shortcuts for the fonts that start with "Lucida Bright". There should be four of them. 
+ 6. Go back to the Fonts panel. 
+ 7. Move to the font "Lucida Sans", and double click on it. 
+ 8. Delete the shortcuts for the fonts that start with "Lucida Sans". There should be two of them. 
+ 9. Go back to the Fonts panel. 
+ 10. Move to the font "Lucida Sans Typewriter", and double click on it. 
+ 11. Delete the shortcuts for the fonts that start with "Lucida Sans Typewriter". There should be two of them. 
+ 12. Go back to the Fonts panel. 
+ 13. Restart Windows. 
+ 14. Delete the <Oracle>\Middleware folder and all sub directories. 
+
+ For some reason, Windows will grab the fonts in that directory and put them in memory (even in Safe Mode). This is why the directory can't be deleted. By deleting the shortcuts for the fonts and restarting, Windows does not load them and the directory can be deleted. 
+
+ Please let us know if that helps in deleting the directory.  
+ 
+ 
+ -----------------------------------------------------------------------------------------------------------------
+ 
+ 
+Hi Tom, 
+
+ David again. 
+ If you find that deleting the .msi file does not work (it did not work in my testing), please try the following: 
+
+ If you want to uninstall and install to a different directory. 
+ 1. Uninstall as usual. 
+ 2. If needed, follow the steps for deleting Fonts 
+ 3. Open the Windows Registry (Windows Start -> Run -> Type in "Regedit"). 
+ 4. Navigate to the key 
+ HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Environment 
+ 5. Delete the String Value for EPM_ORACLE_HOME and HYPERION_HOME 
+ 6. Check any other ControlSet keys that are present. Delete the strings from step 5 if they are present. 
+ 7. Close the Registry editor. 
+ 8. Restart Windows. 
+
+ Any questions or comments, please let us know. 
+
+ -David  

@@ -1,0 +1,12 @@
+D:
+cd D:\Oracle\Middleware\EPMSystem11R1\OPatch
+
+opatch lsinventory -oh d:\Oracle\Middleware\EPMSystem11R1 -jre d:\oracle\middleware\jdk160_35\jre
+
+
+opatch apply D:\Oracle\Middleware\EPMSystem11R1\OPatch\20625507 -oh d:\Oracle\Middleware\EPMSystem11R1 -jre d:\oracle\middleware\jdk160_35\jre
+
+opatch rollback -id 20625507 -oh d:\Oracle\Middleware\EPMSystem11R1 -jre d:\oracle\middleware\jdk160_35\jre
+
+
+

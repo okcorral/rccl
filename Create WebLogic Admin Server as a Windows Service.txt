@@ -1,0 +1,40 @@
+1:	Edit D:\Oracle\Middleware\wlserver_10.3\server\bin\installSvc.cmd file:
+
+	1)  Replace lines 57-58:
+
+		set WL_HOME=D:\Oracle\Middleware\EPMSystem11R1\..\wlserver_10.3
+		call "%WL_HOME%\common\bin\commEnv.cmd"
+
+		with:
+
+		set WL_HOME=D:\Oracle\Middleware\EPMSystem11R1\..\wlserver_10.3
+		set ENV_HOME=D:\Oracle\Middleware\user_projects\domains\EPMSystem\bin
+
+		call "%WL_HOME%\common\bin\commEnv.cmd"
+		call "%ENV_HOME%\setDomainEnv.cmd"
+
+	2)  Replace service name in line 126:
+
+		-svcname:"beasvc %DOMAIN_NAME%_%SERVER_NAME%"
+		
+		with:
+		
+		-svcname:"Oracle Weblogic %DOMAIN_NAME% %SERVER_NAME%"
+
+2:  Run the following in a cmd window as Administrator:	
+	
+SETLOCAL
+set DOMAIN_NAME=EPMSystem
+set USERDOMAIN_HOME=D:\Oracle\Middleware\user_projects\domains\EPMSystem
+set SERVER_NAME=AdminServer
+set WL_HOME=D:\Oracle\Middleware\wlserver_10.3
+set WLS_USER=epm_admin
+set WLS_PW=3PM_R3p0rt!ng
+set PRODUCTION_MODE=true
+set MEM_ARGS=-Xms512m –Xmx512m
+call "%WL_HOME%\server\bin\installSvc.cmd"
+ENDLOCAL
+
+3:  Run the following in powershell to change the description of the service:
+
+Set-Service "Oracle Weblogic EPMSystem AdminServer" -description "EPM System Admin Server"

@@ -1,0 +1,9 @@
+SETLOCAL
+set DOMAIN_NAME=EPMSystem
+set USERDOMAIN_HOME=D:\Oracle\Middleware\user_projects\domains\EPMSystem
+set SERVER_NAME=ManagedServer1
+set PRODUCTION_MODE=true
+set WL_HOME=D:\Oracle\Middleware\wlserver_10.3
+set ADMIN_URL=http://mrmepmfnd0:7001
+set MEM_ARGS=-Xms40m -Xmx250m
+call "%WL_HOME%\server\bin\installSvc.cmd"
